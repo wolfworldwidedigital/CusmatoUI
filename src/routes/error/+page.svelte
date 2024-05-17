@@ -1,6 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
-	import { TurboSASE, config } from '$lib/stores';
+	import { open-webuiE, config } from '$lib/stores';
 	import { onMount, getContext } from 'svelte';
 
 	const i18n = getContext('i18n');
@@ -22,7 +22,7 @@
 			<div class="m-auto pb-44 flex flex-col justify-center">
 				<div class="max-w-md">
 					<div class="text-center text-2xl font-medium z-50">
-						{$i18n.t('{{webUIName}} Backend Required', { webUIName: $TurboSASE })}
+						{$i18n.t('{{webUIName}} Backend Required', { webUIName: $open-webuiE })}
 					</div>
 
 					<div class=" mt-4 text-center text-sm w-full">
@@ -34,7 +34,7 @@
 						<br class=" " />
 						<a
 							class=" font-semibold underline"
-							href="https://github.com/TurboSAS/TurboSAS#how-to-install-"
+							href="https://github.com/open-webui/open-webui#how-to-install-"
 							target="_blank">{$i18n.t('See readme.md for instructions')}</a
 						>
 						{$i18n.t('or')}

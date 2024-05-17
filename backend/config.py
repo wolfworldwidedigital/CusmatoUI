@@ -72,9 +72,9 @@ for source in log_sources:
 log.setLevel(SRC_LOG_LEVELS["CONFIG"])
 
 
-TurboSASE = os.environ.get("TurboSASE", "TurboSAS")
-if TurboSASE != "TurboSAS":
-    TurboSASE += " (TurboSAS)"
+open-webuiE = os.environ.get("open-webuiE", "open-webui")
+if open-webuiE != "open-webui":
+    open-webuiE += " (open-webui)"
 
 WEBUI_URL = os.environ.get("WEBUI_URL", "http://localhost:3000")
 
@@ -220,7 +220,7 @@ if CUSTOM_NAME:
                         r.raw.decode_content = True
                         shutil.copyfileobj(r.raw, f)
 
-            TurboSASE = data["name"]
+            open-webuiE = data["name"]
     except Exception as e:
         log.exception(e)
         pass
@@ -305,13 +305,13 @@ if OLLAMA_BASE_URL == "" and OLLAMA_API_BASE_URL != "":
 if ENV == "prod":
     if OLLAMA_BASE_URL == "/ollama" and not K8S_FLAG:
         if USE_OLLAMA_DOCKER.lower() == "true":
-            # if you use all-in-one docker container (TurboSAS + Ollama)
+            # if you use all-in-one docker container (open-webui + Ollama)
             # with the docker build arg USE_OLLAMA=true (--build-arg="USE_OLLAMA=true") this only works with http://localhost:11434
             OLLAMA_BASE_URL = "http://localhost:11434"
         else:
             OLLAMA_BASE_URL = "http://host.docker.internal:11434"
     elif K8S_FLAG:
-        OLLAMA_BASE_URL = "http://ollama-service.TurboSAS.svc.cluster.local:11434"
+        OLLAMA_BASE_URL = "http://ollama-service.open-webui.svc.cluster.local:11434"
 
 
 OLLAMA_BASE_URLS = os.environ.get("OLLAMA_BASE_URLS", "")

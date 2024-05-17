@@ -27,7 +27,7 @@ update:
 	@git pull
 	$(DOCKER_COMPOSE) down
 	# Make sure the ollama-webui container is stopped before rebuilding
-	@docker stop TurboSAS || true
+	@docker stop open-webui || true
 	$(DOCKER_COMPOSE) up --build -d
 	$(DOCKER_COMPOSE) start
 

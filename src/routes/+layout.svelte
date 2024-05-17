@@ -1,6 +1,6 @@
 <script>
 	import { onMount, tick, setContext } from 'svelte';
-	import { config, user, theme, TurboSASE } from '$lib/stores';
+	import { config, user, theme, open-webuiE } from '$lib/stores';
 	import { goto } from '$app/navigation';
 	import { Toaster, toast } from 'svelte-sonner';
 
@@ -33,7 +33,7 @@
 				initI18n();
 			}
 
-			await TurboSASE.set(backendConfig.name);
+			await open-webuiE.set(backendConfig.name);
 			console.log(backendConfig);
 
 			if ($config) {
@@ -69,7 +69,7 @@
 </script>
 
 <svelte:head>
-	<title>{$TurboSASE}</title>
+	<title>{$open-webuiE}</title>
 	<link rel="icon" href="{WEBUI_BASE_URL}/static/favicon.png" />
 
 	<!-- rosepine themes have been disabled as it's not up to date with our latest version. -->

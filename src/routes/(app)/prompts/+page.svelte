@@ -4,7 +4,7 @@
 	const { saveAs } = fileSaver;
 
 	import { onMount, getContext } from 'svelte';
-	import { TurboSASE, prompts } from '$lib/stores';
+	import { open-webuiE, prompts } from '$lib/stores';
 	import { createNewPrompt, deletePromptByCommand, getPrompts } from '$lib/apis/prompts';
 	import { error } from '@sveltejs/kit';
 	import { goto } from '$app/navigation';
@@ -40,7 +40,7 @@
 
 <svelte:head>
 	<title>
-		{$i18n.t('Prompts')} | {$TurboSASE}
+		{$i18n.t('Prompts')} | {$open-webuiE}
 	</title>
 </svelte:head>
 

@@ -5,7 +5,7 @@
 
 	import { onMount, getContext } from 'svelte';
 
-	import { TurboSASE, modelfiles, settings, user } from '$lib/stores';
+	import { open-webuiE, modelfiles, settings, user } from '$lib/stores';
 	import { createModel, deleteModel } from '$lib/apis/ollama';
 	import {
 		createNewModelfile,
@@ -76,7 +76,7 @@
 
 <svelte:head>
 	<title>
-		{$i18n.t('Modelfiles')} | {$TurboSASE}
+		{$i18n.t('Modelfiles')} | {$open-webuiE}
 	</title>
 </svelte:head>
 

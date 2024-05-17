@@ -5,7 +5,7 @@
 
 	import dayjs from 'dayjs';
 
-	import { modelfiles, settings, chatId, TurboSASE } from '$lib/stores';
+	import { modelfiles, settings, chatId, open-webuiE } from '$lib/stores';
 	import { convertMessagesToHistory } from '$lib/utils';
 
 	import { getChatByShareId } from '$lib/apis/chats';
@@ -128,8 +128,8 @@
 <svelte:head>
 	<title>
 		{title
-			? `${title.length > 30 ? `${title.slice(0, 30)}...` : title} | ${$TurboSASE}`
-			: `${$TurboSASE}`}
+			? `${title.length > 30 ? `${title.slice(0, 30)}...` : title} | ${$open-webuiE}`
+			: `${$open-webuiE}`}
 	</title>
 </svelte:head>
 

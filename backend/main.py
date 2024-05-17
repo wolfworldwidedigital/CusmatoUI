@@ -42,7 +42,7 @@ from apps.rag.utils import rag_messages
 
 from config import (
     CONFIG_DATA,
-    TurboSASE,
+    open-webuiE,
     WEBUI_URL,
     WEBUI_AUTH,
     ENV,
@@ -79,16 +79,16 @@ class SPAStaticFiles(StaticFiles):
 
 print(
     rf"""
-  ___                    __        __   _     _   _ ___ 
- / _ \ _ __   ___ _ __   \ \      / /__| |__ | | | |_ _|
-| | | | '_ \ / _ \ '_ \   \ \ /\ / / _ \ '_ \| | | || | 
-| |_| | |_) |  __/ | | |   \ V  V /  __/ |_) | |_| || | 
- \___/| .__/ \___|_| |_|    \_/\_/ \___|_.__/ \___/|___|
+  ___                  
+ / _ \ _ __   ___ _ __ 
+| | | | '_ \ / _ \ '_ \  
+| |_| | |_) |  __/ | | | 
+ \___/| .__/ \___|_| |_|   
       |_|                                               
-
+      
       
 v{VERSION} - building the best open-source AI user interface.      
-https://github.com/TurboSAS/TurboSAS
+https://github.com/wolfworldwidedigital/open-webui
 """
 )
 
@@ -239,7 +239,7 @@ async def get_app_config():
     # The Rest of the Function Now Uses the Variables Defined Above
     return {
         "status": True,
-        "name": TurboSASE,
+        "name": open-webuiE,
         "version": VERSION,
         "auth": WEBUI_AUTH,
         "default_locale": default_locale,
@@ -325,7 +325,7 @@ async def get_app_latest_release_version():
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get(
-                "https://api.github.com/repos/TurboSAS/TurboSAS/releases/latest"
+                "https://api.github.com/repos/wolfworldwidedigital/open-webui/releases/latest"
             ) as response:
                 response.raise_for_status()
                 data = await response.json()
@@ -342,8 +342,8 @@ async def get_app_latest_release_version():
 @app.get("/manifest.json")
 async def get_manifest_json():
     return {
-        "name": TurboSASE,
-        "short_name": TurboSASE,
+        "name": open-webuiE,
+        "short_name": open-webuiE,
         "start_url": "/",
         "display": "standalone",
         "background_color": "#343541",
@@ -357,8 +357,8 @@ async def get_manifest_json():
 async def get_opensearch_xml():
     xml_content = rf"""
     <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
-    <ShortName>{TurboSASE}</ShortName>
-    <Description>Search {TurboSASE}</Description>
+    <ShortName>{open-webuiE}</ShortName>
+    <Description>Search {open-webuiE}</Description>
     <InputEncoding>UTF-8</InputEncoding>
     <Image width="16" height="16" type="image/x-icon">{WEBUI_URL}/favicon.png</Image>
     <Url type="text/html" method="get" template="{WEBUI_URL}/?q={"{searchTerms}"}"/>

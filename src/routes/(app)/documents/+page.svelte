@@ -4,7 +4,7 @@
 	const { saveAs } = fileSaver;
 
 	import { onMount, getContext } from 'svelte';
-	import { TurboSASE, documents } from '$lib/stores';
+	import { open-webuiE, documents } from '$lib/stores';
 	import { createNewDoc, deleteDocByName, getDocs } from '$lib/apis/documents';
 
 	import { SUPPORTED_FILE_TYPE, SUPPORTED_FILE_EXTENSIONS } from '$lib/constants';
@@ -152,7 +152,7 @@
 </script>
 
 <svelte:head>
-	<title>{$i18n.t('Documents')} | {$TurboSASE}</title>
+	<title>{$i18n.t('Documents')} | {$open-webuiE}</title>
 </svelte:head>
 
 {#if dragged}

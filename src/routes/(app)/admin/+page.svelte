@@ -1,6 +1,6 @@
 <script>
 	import { WEBUI_API_BASE_URL } from '$lib/constants';
-	import { TurboSASE, config, user } from '$lib/stores';
+	import { open-webuiE, config, user } from '$lib/stores';
 	import { goto } from '$app/navigation';
 	import { onMount, getContext } from 'svelte';
 
@@ -79,7 +79,7 @@
 </script>
 
 <svelte:head>
-	<title>{$i18n.t('Admin Panel')} | {$TurboSASE}</title>
+	<title>{$i18n.t('Admin Panel')} | {$open-webuiE}</title>
 </svelte:head>
 
 {#key selectedUser}
