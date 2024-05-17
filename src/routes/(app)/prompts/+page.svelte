@@ -15,9 +15,9 @@
 	let query = '';
 	let promptsImportInputElement: HTMLInputElement;
 	const sharePrompt = async (prompt) => {
-		toast.success($i18n.t('Redirecting you to OpenWebUI Community'));
+		toast.success($i18n.t('Redirecting you to Turbo SAS Community'));
 
-		const url = 'https://openwebui.com';
+		const url = 'https://';
 
 		const tab = await window.open(`${url}/prompts/create`, '_blank');
 		window.addEventListener(
@@ -305,7 +305,7 @@
 			</div>
 
 			<div class=" my-16">
-				<div class=" text-2xl font-semibold mb-3">{$i18n.t('Made by OpenWebUI Community')}</div>
+				<div class=" text-2xl font-semibold mb-3">{$i18n.t('Made by Malaga's Concetrix Community')}</div>
 
 				<a
 					class=" flex space-x-4 cursor-pointer w-full mb-3 px-3 py-2"

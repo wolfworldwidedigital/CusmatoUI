@@ -43,7 +43,7 @@
 	const shareModelfile = async (modelfile) => {
 		toast.success($i18n.t('Redirecting you to OpenWebUI Community'));
 
-		const url = 'https://openwebui.com';
+		const url = 'https://turbosas';
 
 		const tab = await window.open(`${url}/modelfiles/create`, '_blank');
 		window.addEventListener(
