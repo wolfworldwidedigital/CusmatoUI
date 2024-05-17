@@ -68,7 +68,7 @@
 
 <svelte:head>
 	<title>
-		{`${$open-webuiE}`}
+		{`${TurboSAS}`}
 	</title>
 </svelte:head>
 
@@ -105,7 +105,7 @@
 						<div>
 							{$i18n.t('Signing in')}
 							{$i18n.t('to')}
-							{$open-webuiE}
+							{TurboSAS}
 						</div>
 
 						<div>
@@ -125,12 +125,12 @@
 							<div class=" text-2xl font-bold">
 								{mode === 'signin' ? $i18n.t('Sign in') : $i18n.t('Sign up')}
 								{$i18n.t('to')}
-								{$open-webuiE}
+								{TurboSAS}
 							</div>
 
 							{#if mode === 'signup'}
 								<div class=" mt-1 text-xs font-medium text-gray-500">
-									ⓘ {$open-webuiE}
+									ⓘ {TurboSAS}
 									{$i18n.t(
 										'does not make any external connections, and your data stays securely on your locally hosted server.'
 									)}

@@ -47,7 +47,7 @@
 		<div>
 			<div class=" mb-2.5 text-sm font-medium flex space-x-2 items-center">
 				<div>
-					{$open-webuiE}
+					{TurboSAS}
 					{$i18n.t('Version')}
 				</div>
 			</div>
@@ -130,8 +130,8 @@
 		</div>
 
 		<div class="mt-2 text-xs text-gray-400 dark:text-gray-500">
-			{#if !$open-webuiE.includes('open-webui')}
-				<span class=" text-gray-500 dark:text-gray-300 font-medium">{$open-webuiE}</span> -
+			{#if !TurboSAS.includes('open-webui')}
+				<span class=" text-gray-500 dark:text-gray-300 font-medium">{TurboSAS}</span> -
 			{/if}{$i18n.t('Created by')}
 			<a
 				class=" text-gray-500 dark:text-gray-300 font-medium"

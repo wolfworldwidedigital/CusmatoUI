@@ -79,7 +79,7 @@
 </script>
 
 <svelte:head>
-	<title>{$i18n.t('Admin Panel')} | {$open-webuiE}</title>
+	<title>{$i18n.t('Admin Panel')} | {TurboSAS}</title>
 </svelte:head>
 
 {#key selectedUser}

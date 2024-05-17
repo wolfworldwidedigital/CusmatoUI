@@ -152,7 +152,7 @@
 </script>
 
 <svelte:head>
-	<title>{$i18n.t('Documents')} | {$open-webuiE}</title>
+	<title>{$i18n.t('Documents')} | {TurboSAS}</title>
 </svelte:head>
 
 {#if dragged}

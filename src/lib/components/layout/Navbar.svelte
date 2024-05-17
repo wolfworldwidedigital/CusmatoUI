@@ -14,7 +14,7 @@
 	const i18n = getContext('i18n');
 
 	export let initNewChat: Function;
-	export let title: string = $open-webuiE;
+	export let title: string = TurboSAS;
 	export let shareEnabled: boolean = false;
 
 	export let chat;

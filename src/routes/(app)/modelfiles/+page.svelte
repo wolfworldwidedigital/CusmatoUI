@@ -76,7 +76,7 @@
 
 <svelte:head>
 	<title>
-		{$i18n.t('Modelfiles')} | {$open-webuiE}
+		{$i18n.t('Modelfiles')} | {TurboSAS}
 	</title>
 </svelte:head>
 

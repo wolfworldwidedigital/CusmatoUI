@@ -868,8 +868,8 @@
 <svelte:head>
 	<title>
 		{title
-			? `${title.length > 30 ? `${title.slice(0, 30)}...` : title} | ${$open-webuiE}`
-			: `${$open-webuiE}`}
+			? `${title.length > 30 ? `${title.slice(0, 30)}...` : title} | ${TurboSAS}`
+			: `${TurboSAS}`}
 	</title>
 </svelte:head>
 

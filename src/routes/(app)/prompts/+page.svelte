@@ -40,7 +40,7 @@
 
 <svelte:head>
 	<title>
-		{$i18n.t('Prompts')} | {$open-webuiE}
+		{$i18n.t('Prompts')} | {TurboSAS}
 	</title>
 </svelte:head>
 

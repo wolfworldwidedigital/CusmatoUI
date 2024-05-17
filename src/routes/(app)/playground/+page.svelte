@@ -264,7 +264,7 @@
 
 <svelte:head>
 	<title>
-		{$i18n.t('Playground')} | {$open-webuiE}
+		{$i18n.t('Playground')} | {TurboSAS}
 	</title>
 </svelte:head>
 
