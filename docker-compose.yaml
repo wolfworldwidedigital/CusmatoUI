@@ -10,16 +10,16 @@ services:
     restart: unless-stopped
     image: ollama/ollama:${OLLAMA_DOCKER_TAG-latest}
 
-  open-webui:
+  cusmato:
     build:
       context: .
       args:
         OLLAMA_BASE_URL: '/ollama'
       dockerfile: Dockerfile
-    image: ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
-    container_name: open-webui
+    image: ghcr.io/cusmato/cusmato:${WEBUI_DOCKER_TAG-main}
+    container_name: cusmato
     volumes:
-      - open-webui:/app/backend/data
+      - cusmato:/app/backend/data
     depends_on:
       - ollama
     ports:
@@ -33,4 +33,4 @@ services:
 
 volumes:
   ollama: {}
-  open-webui: {}
+  cusmato: {}

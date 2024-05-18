@@ -151,7 +151,7 @@ async def speech(request: Request, user=Depends(get_verified_user)):
 
     except Exception as e:
         log.exception(e)
-        error_detail = "open-webui: Server Connection Error"
+        error_detail = "cusmato: Server Connection Error"
         if r is not None:
             try:
                 res = r.json()

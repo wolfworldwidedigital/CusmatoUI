@@ -72,9 +72,9 @@ for source in log_sources:
 log.setLevel(SRC_LOG_LEVELS["CONFIG"])
 
 
-cusmato = os.environ.get("cusmato", "open-webui")
-if cusmato != "open-webui":
-    cusmato += " (open-webui)"
+cusmato = os.environ.get("cusmato", "cusmato")
+if cusmato != "cusmato":
+    cusmato += " (cusmato)"
 
 WEBUI_URL = os.environ.get("WEBUI_URL", "http://localhost:3000")
 
@@ -305,13 +305,13 @@ if OLLAMA_BASE_URL == "" and OLLAMA_API_BASE_URL != "":
 if ENV == "prod":
     if OLLAMA_BASE_URL == "/ollama" and not K8S_FLAG:
         if USE_OLLAMA_DOCKER.lower() == "true":
-            # if you use all-in-one docker container (open-webui + Ollama)
+            # if you use all-in-one docker container (cusmato + Ollama)
             # with the docker build arg USE_OLLAMA=true (--build-arg="USE_OLLAMA=true") this only works with http://localhost:11434
             OLLAMA_BASE_URL = "http://localhost:11434"
         else:
             OLLAMA_BASE_URL = "http://host.docker.internal:11434"
     elif K8S_FLAG:
-        OLLAMA_BASE_URL = "http://ollama-service.open-webui.svc.cluster.local:11434"
+        OLLAMA_BASE_URL = "http://ollama-service.cusmato.svc.cluster.local:11434"
 
 
 OLLAMA_BASE_URLS = os.environ.get("OLLAMA_BASE_URLS", "")

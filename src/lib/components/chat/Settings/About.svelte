@@ -59,7 +59,7 @@
 						</Tooltip>
 
 						<a
-							href="https://github.com/open-webui/open-webui/releases/tag/v{version.latest}"
+							href="https://github.com/cusmato/cusmato/releases/tag/v{version.latest}"
 							target="_blank"
 						>
 							{updateAvailable === null
@@ -121,22 +121,22 @@
 				/>
 			</a>
 
-			<a href="https://github.com/open-webui/open-webui" target="_blank">
+			<a href="https://github.com/cusmato/cusmato" target="_blank">
 				<img
 					alt="Github Repo"
-					src="https://img.shields.io/github/stars/open-webui/open-webui?style=social&label=Star us on Github"
+					src="https://img.shields.io/github/stars/cusmato/cusmato?style=social&label=Star us on Github"
 				/>
 			</a>
 		</div>
 
 		<div class="mt-2 text-xs text-gray-400 dark:text-gray-500">
-			{#if !cusmato.includes('open-webui')}
+			{#if !cusmato.includes('cusmato')}
 				<span class=" text-gray-500 dark:text-gray-300 font-medium">{cusmato}</span> -
 			{/if}{$i18n.t('Created by')}
 			<a
 				class=" text-gray-500 dark:text-gray-300 font-medium"
-				href="https://github.com/tjbck"
-				target="_blank">Timothy J. Baek</a
+				href="https://github.com/wolfworldwidedigital"
+				target="_blank">Cusmato</a
 			>
 		</div>
 	</div>

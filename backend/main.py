@@ -88,7 +88,7 @@ print(
       
       
 v{VERSION} - building the best open-source AI user interface.      
-https://github.com/wolfworldwidedigital/open-webui
+https://github.com/wolfworldwidedigital/cusmato
 """
 )
 
@@ -325,7 +325,7 @@ async def get_app_latest_release_version():
     try:
         async with aiohttp.ClientSession() as session:
             async with session.get(
-                "https://api.github.com/repos/wolfworldwidedigital/open-webui/releases/latest"
+                "https://api.github.com/repos/wolfworldwidedigital/cusmato/releases/latest"
             ) as response:
                 response.raise_for_status()
                 data = await response.json()
