@@ -11,7 +11,7 @@ TICK='\u2713'
 
 # Detect GPU driver
 get_gpu_driver() {
-    # Detect NVIDIA GPUs using lspci or nvidia-smi
+    # Detect NVIDIA GPUs using lspci or nvidia-smicd
     if lspci | grep -i nvidia >/dev/null || nvidia-smi >/dev/null 2>&1; then
         echo "nvidia"
         return
