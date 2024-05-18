@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import { toast } from 'svelte-sonner';
 
-	import { open-webuiE, chatId, modelfiles, settings, showSettings } from '$lib/stores';
+	import { cusmato, chatId, modelfiles, settings, showSettings } from '$lib/stores';
 
 	import { slide } from 'svelte/transition';
 	import ShareChatModal from '../chat/ShareChatModal.svelte';
@@ -14,7 +14,7 @@
 	const i18n = getContext('i18n');
 
 	export let initNewChat: Function;
-	export let title: string = TurboSAS;
+	export let title: string = cusmato;
 	export let shareEnabled: boolean = false;
 
 	export let chat;

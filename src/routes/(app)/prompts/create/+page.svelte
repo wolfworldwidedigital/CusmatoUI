@@ -60,8 +60,8 @@
 				![
 					'https://ollamahub.com',
 					'https://www.ollamahub.com',
-					'https://openwebui.com',
-					'https://www.openwebui.com',
+					'https://Cusmato.com',
+					'https://www.Cusmato.com',
 					'http://localhost:5173'
 				].includes(event.origin)
 			)

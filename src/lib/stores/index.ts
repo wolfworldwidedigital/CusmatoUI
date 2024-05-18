@@ -2,7 +2,7 @@ import { APP_NAME } from '$lib/constants';
 import { type Writable, writable } from 'svelte/store';
 
 // Backend
-export const open-webuiE = writable(APP_NAME);
+export const cusmato = writable(APP_NAME);
 export const config: Writable<Config | undefined> = writable(undefined);
 export const user: Writable<SessionUser | undefined> = writable(undefined);
 

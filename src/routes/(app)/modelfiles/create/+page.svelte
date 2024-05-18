@@ -217,8 +217,8 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 				![
 					'https://ollamahub.com',
 					'https://www.ollamahub.com',
-					'https://openwebui.com',
-					'https://www.openwebui.com',
+					'https://Cusmato.com',
+					'https://www.Cusmato.com',
 					'http://localhost:5173'
 				].includes(event.origin)
 			)
@@ -506,7 +506,7 @@ SYSTEM """${system}"""`.replace(/^\s*\n/gm, '');
 								or
 								<a
 									class=" text-gray-500 dark:text-gray-300 font-medium"
-									href="https://openwebui.com"
+									href="https://Cusmato.com"
 									target="_blank"
 								>
 									{$i18n.t('Click here to check other modelfiles.')}

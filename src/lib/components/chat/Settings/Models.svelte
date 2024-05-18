@@ -13,7 +13,7 @@
 		uploadModel
 	} from '$lib/apis/ollama';
 	import { WEBUI_API_BASE_URL, WEBUI_BASE_URL } from '$lib/constants';
-	import { open-webuiE, models, MODEL_DOWNLOAD_POOL, user } from '$lib/stores';
+	import { cusmato, models, MODEL_DOWNLOAD_POOL, user } from '$lib/stores';
 	import { splitStream } from '$lib/utils';
 	import { onMount, getContext } from 'svelte';
 	import { addLiteLLMModel, deleteLiteLLMModel, getLiteLLMModelInfo } from '$lib/apis/litellm';

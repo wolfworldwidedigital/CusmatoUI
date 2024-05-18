@@ -72,13 +72,13 @@ for source in log_sources:
 log.setLevel(SRC_LOG_LEVELS["CONFIG"])
 
 
-open-webuiE = os.environ.get("open-webuiE", "open-webui")
-if open-webuiE != "open-webui":
-    open-webuiE += " (open-webui)"
+cusmato = os.environ.get("cusmato", "open-webui")
+if cusmato != "open-webui":
+    cusmato += " (open-webui)"
 
 WEBUI_URL = os.environ.get("WEBUI_URL", "http://localhost:3000")
 
-WEBUI_FAVICON_URL = "https://openwebui.com/favicon.png"
+WEBUI_FAVICON_URL = "https://Cusmato.com/favicon.png"
 
 
 ####################################
@@ -204,12 +204,12 @@ CUSTOM_NAME = os.environ.get("CUSTOM_NAME", "")
 
 if CUSTOM_NAME:
     try:
-        r = requests.get(f"https://api.openwebui.com/api/v1/custom/{CUSTOM_NAME}")
+        r = requests.get(f"https://api.Cusmato.com/api/v1/custom/{CUSTOM_NAME}")
         data = r.json()
         if r.ok:
             if "logo" in data:
                 WEBUI_FAVICON_URL = url = (
-                    f"https://api.openwebui.com{data['logo']}"
+                    f"https://api.Cusmato.com{data['logo']}"
                     if data["logo"][0] == "/"
                     else data["logo"]
                 )
@@ -220,7 +220,7 @@ if CUSTOM_NAME:
                         r.raw.decode_content = True
                         shutil.copyfileobj(r.raw, f)
 
-            open-webuiE = data["name"]
+            cusmato = data["name"]
     except Exception as e:
         log.exception(e)
         pass

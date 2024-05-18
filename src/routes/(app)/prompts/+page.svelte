@@ -4,7 +4,7 @@
 	const { saveAs } = fileSaver;
 
 	import { onMount, getContext } from 'svelte';
-	import { open-webuiE, prompts } from '$lib/stores';
+	import { cusmato, prompts } from '$lib/stores';
 	import { createNewPrompt, deletePromptByCommand, getPrompts } from '$lib/apis/prompts';
 	import { error } from '@sveltejs/kit';
 	import { goto } from '$app/navigation';
@@ -15,7 +15,7 @@
 	let query = '';
 	let promptsImportInputElement: HTMLInputElement;
 	const sharePrompt = async (prompt) => {
-		toast.success($i18n.t('Redirecting you to Turbo SAS Community'));
+		toast.success($i18n.t('Redirecting you to cusmato Community'));
 
 		const url = 'https://';
 
@@ -40,7 +40,7 @@
 
 <svelte:head>
 	<title>
-		{$i18n.t('Prompts')} | {TurboSAS}
+		{$i18n.t('Prompts')} | {cusmato}
 	</title>
 </svelte:head>
 
@@ -305,11 +305,9 @@
 			</div>
 
 			<div class=" my-16">
-				<div class=" text-2xl font-semibold mb-3">{$i18n.t('Made by Malaga's Concetrix Community')}</div>
-
 				<a
 					class=" flex space-x-4 cursor-pointer w-full mb-3 px-3 py-2"
-					href="https://openwebui.com/?type=prompts"
+					href="https://Cusmato.com/?type=prompts"
 					target="_blank"
 				>
 					<div class=" self-center w-10">

@@ -5,7 +5,7 @@
 
 	import { onMount, getContext } from 'svelte';
 
-	import { open-webuiE, modelfiles, settings, user } from '$lib/stores';
+	import { cusmato, modelfiles, settings, user } from '$lib/stores';
 	import { createModel, deleteModel } from '$lib/apis/ollama';
 	import {
 		createNewModelfile,
@@ -41,9 +41,9 @@
 	};
 
 	const shareModelfile = async (modelfile) => {
-		toast.success($i18n.t('Redirecting you to OpenWebUI Community'));
+		toast.success($i18n.t('Redirecting you to Cusmato Community'));
 
-		const url = 'https://turbosas';
+		const url = 'https://cusmato';
 
 		const tab = await window.open(`${url}/modelfiles/create`, '_blank');
 		window.addEventListener(
@@ -76,7 +76,7 @@
 
 <svelte:head>
 	<title>
-		{$i18n.t('Modelfiles')} | {TurboSAS}
+		{$i18n.t('Modelfiles')} | {cusmato}
 	</title>
 </svelte:head>
 
@@ -388,11 +388,11 @@
 			</div>
 
 			<div class=" my-16">
-				<div class=" text-2xl font-semibold mb-3">{$i18n.t('Made by OpenWebUI Community')}</div>
+				<div class=" text-2xl font-semibold mb-3">{$i18n.t('Made by Cusmato Community')}</div>
 
 				<a
 					class=" flex space-x-4 cursor-pointer w-full mb-2 px-3 py-2"
-					href="https://openwebui.com/"
+					href="https://Cusmato.com/"
 					target="_blank"
 				>
 					<div class=" self-center w-10">

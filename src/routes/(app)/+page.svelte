@@ -14,7 +14,7 @@
 		chats,
 		chatId,
 		config,
-		open-webuiE,
+		cusmato,
 		tags as _tags,
 		showSidebar
 	} from '$lib/stores';
@@ -858,8 +858,8 @@
 <svelte:head>
 	<title>
 		{title
-			? `${title.length > 30 ? `${title.slice(0, 30)}...` : title} | ${TurboSAS}`
-			: `${TurboSAS}`}
+			? `${title.length > 30 ? `${title.slice(0, 30)}...` : title} | ${cusmato}`
+			: `${cusmato}`}
 	</title>
 </svelte:head>
 

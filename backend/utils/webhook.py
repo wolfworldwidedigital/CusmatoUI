@@ -2,7 +2,7 @@ import json
 import requests
 import logging
 
-from config import SRC_LOG_LEVELS, VERSION, WEBUI_FAVICON_URL, open-webuiE
+from config import SRC_LOG_LEVELS, VERSION, WEBUI_FAVICON_URL, cusmato
 
 log = logging.getLogger(__name__)
 log.setLevel(SRC_LOG_LEVELS["WEBHOOK"])
@@ -33,7 +33,7 @@ def post_webhook(url: str, message: str, event_data: dict) -> bool:
                 "sections": [
                     {
                         "activityTitle": message,
-                        "activitySubtitle": f"{open-webuiE} ({VERSION}) - {action}",
+                        "activitySubtitle": f"{cusmato} ({VERSION}) - {action}",
                         "activityImage": WEBUI_FAVICON_URL,
                         "facts": facts,
                         "markdown": True,

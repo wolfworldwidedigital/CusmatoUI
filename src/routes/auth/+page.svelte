@@ -3,7 +3,7 @@
 	import { userSignIn, userSignUp } from '$lib/apis/auths';
 	import Spinner from '$lib/components/common/Spinner.svelte';
 	import { WEBUI_API_BASE_URL, WEBUI_BASE_URL } from '$lib/constants';
-	import { open-webuiE, config, user } from '$lib/stores';
+	import { cusmato, config, user } from '$lib/stores';
 	import { onMount, getContext } from 'svelte';
 	import { toast } from 'svelte-sonner';
 	import { generateInitialsImage, canvasPixelTest } from '$lib/utils';
@@ -68,7 +68,7 @@
 
 <svelte:head>
 	<title>
-		{`${TurboSAS}`}
+		{`${cusmato}`}
 	</title>
 </svelte:head>
 
@@ -105,7 +105,7 @@
 						<div>
 							{$i18n.t('Signing in')}
 							{$i18n.t('to')}
-							{TurboSAS}
+							{cusmato}
 						</div>
 
 						<div>
@@ -125,12 +125,12 @@
 							<div class=" text-2xl font-bold">
 								{mode === 'signin' ? $i18n.t('Sign in') : $i18n.t('Sign up')}
 								{$i18n.t('to')}
-								{TurboSAS}
+								{cusmato}
 							</div>
 
 							{#if mode === 'signup'}
 								<div class=" mt-1 text-xs font-medium text-gray-500">
-									ⓘ {TurboSAS}
+									ⓘ {cusmato}
 									{$i18n.t(
 										'does not make any external connections, and your data stays securely on your locally hosted server.'
 									)}

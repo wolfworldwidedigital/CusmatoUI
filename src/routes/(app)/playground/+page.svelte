@@ -11,7 +11,7 @@
 		OPENAI_API_BASE_URL,
 		WEBUI_API_BASE_URL
 	} from '$lib/constants';
-	import { open-webuiE, config, user, models, settings } from '$lib/stores';
+	import { cusmato, config, user, models, settings } from '$lib/stores';
 
 	import { cancelOllamaRequest, generateChatCompletion } from '$lib/apis/ollama';
 	import { generateOpenAIChatCompletion } from '$lib/apis/openai';
@@ -264,7 +264,7 @@
 
 <svelte:head>
 	<title>
-		{$i18n.t('Playground')} | {TurboSAS}
+		{$i18n.t('Playground')} | {cusmato}
 	</title>
 </svelte:head>
 

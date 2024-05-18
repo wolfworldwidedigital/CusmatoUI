@@ -5,7 +5,7 @@
 
 	import dayjs from 'dayjs';
 
-	import { modelfiles, settings, chatId, open-webuiE } from '$lib/stores';
+	import { modelfiles, settings, chatId, cusmato } from '$lib/stores';
 	import { convertMessagesToHistory } from '$lib/utils';
 
 	import { getChatByShareId } from '$lib/apis/chats';
@@ -128,8 +128,8 @@
 <svelte:head>
 	<title>
 		{title
-			? `${title.length > 30 ? `${title.slice(0, 30)}...` : title} | ${TurboSAS}`
-			: `${TurboSAS}`}
+			? `${title.length > 30 ? `${title.slice(0, 30)}...` : title} | ${cusmato}`
+			: `${cusmato}`}
 	</title>
 </svelte:head>
 

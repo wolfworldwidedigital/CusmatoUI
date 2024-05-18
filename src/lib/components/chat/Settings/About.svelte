@@ -2,7 +2,7 @@
 	import { getVersionUpdates } from '$lib/apis';
 	import { getOllamaVersion } from '$lib/apis/ollama';
 	import { WEBUI_VERSION } from '$lib/constants';
-	import { open-webuiE, config, showChangelog } from '$lib/stores';
+	import { cusmato, config, showChangelog } from '$lib/stores';
 	import { compareVersion } from '$lib/utils';
 	import { onMount, getContext } from 'svelte';
 
@@ -47,7 +47,7 @@
 		<div>
 			<div class=" mb-2.5 text-sm font-medium flex space-x-2 items-center">
 				<div>
-					{TurboSAS}
+					{cusmato}
 					{$i18n.t('Version')}
 				</div>
 			</div>
@@ -114,10 +114,10 @@
 				/>
 			</a>
 
-			<a href="https://twitter.com/OpenWebUI" target="_blank">
+			<a href="https://twitter.com/Cusmato" target="_blank">
 				<img
 					alt="X (formerly Twitter) Follow"
-					src="https://img.shields.io/twitter/follow/OpenWebUI"
+					src="https://img.shields.io/twitter/follow/Cusmato"
 				/>
 			</a>
 
@@ -130,8 +130,8 @@
 		</div>
 
 		<div class="mt-2 text-xs text-gray-400 dark:text-gray-500">
-			{#if !TurboSAS.includes('open-webui')}
-				<span class=" text-gray-500 dark:text-gray-300 font-medium">{TurboSAS}</span> -
+			{#if !cusmato.includes('open-webui')}
+				<span class=" text-gray-500 dark:text-gray-300 font-medium">{cusmato}</span> -
 			{/if}{$i18n.t('Created by')}
 			<a
 				class=" text-gray-500 dark:text-gray-300 font-medium"
