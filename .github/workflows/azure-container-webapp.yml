@@ -1,0 +1,49 @@
+name: Deploy to Azure Web App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  AZURE_WEBAPP_NAME: your-webapp-name
+  AZURE_RESOURCE_GROUP: your-resource-group
+  AZURE_CONTAINER_REGISTRY: youracr.azurecr.io
+  DOCKER_IMAGE_NAME: vddewolf/cusmato
+  DOCKER_IMAGE_TAG: latest
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Azure Container Registry
+        run: |
+          echo ${{ secrets.AZURE_REGISTRY_PASSWORD }} | docker login ${{ env.AZURE_CONTAINER_REGISTRY }} -u ${{ secrets.AZURE_REGISTRY_USERNAME }} --password-stdin
+
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }} .
+
+      - name: Push Docker image to ACR
+        run: |
+          docker push ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
+
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to Azure Web App
+        run: |
+          az webapp create --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --plan ${{ secrets.AZURE_APP_SERVICE_PLAN }} --name ${{ env.AZURE_WEBAPP_NAME }} --deployment-container-image-name ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
+          az webapp config container set --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCE_GROUP }} --docker-custom-image-name ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }} --docker-registry-server-url https://${{ env.AZURE_CONTAINER_REGISTRY }} --docker-registry-server-user ${{ secrets.AZURE_REGISTRY_USERNAME }} --docker-registry-server-password ${{ secrets.AZURE_REGISTRY_PASSWORD }}
