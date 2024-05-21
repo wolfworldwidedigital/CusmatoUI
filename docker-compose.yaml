@@ -16,7 +16,6 @@ services:
       args:
         OLLAMA_BASE_URL: '/ollama'
       dockerfile: Dockerfile
-    image: ghcr.io/cusmato/cusmato:${WEBUI_DOCKER_TAG-main}
     container_name: cusmato
     volumes:
       - cusmato:/app/backend/data
