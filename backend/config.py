@@ -78,14 +78,14 @@ if cusmato != "cusmato":
 
 WEBUI_URL = os.environ.get("WEBUI_URL", "http://localhost:3000")
 
-WEBUI_FAVICON_URL = "https://Cusmato.com/favicon.png"
+WEBUI_FAVICON_URL = "https://cusmato.com/wp-content/uploads/2024/05/4-1-1024x1024.png"
 
 
 ####################################
 # ENV (dev,test,prod)
 ####################################
 
-ENV = os.environ.get("ENV", "dev")
+ENV = os.environ.get("ENV", "prod")
 
 try:
     with open(f"../package.json", "r") as f:
@@ -190,7 +190,7 @@ except:
 
 STATIC_DIR = str(Path(os.getenv("STATIC_DIR", "./static")).resolve())
 
-frontend_favicon = f"{FRONTEND_BUILD_DIR}/favicon.png"
+frontend_favicon = f"{FRONTEND_BUILD_DIR}/favicon.ico"
 if os.path.exists(frontend_favicon):
     shutil.copyfile(frontend_favicon, f"{STATIC_DIR}/favicon.png")
 else:
@@ -200,31 +200,28 @@ else:
 # CUSTOM_NAME
 ####################################
 
-CUSTOM_NAME = os.environ.get("CUSTOM_NAME", "")
+CUSTOM_NAME = os.environ.get("CUSTOM_NAME", "Cusmato")
 
 if CUSTOM_NAME:
     try:
+        # Use the new URL for the logo
+        url = "https://cusmato.com/wp-content/uploads/2024/05/776d3fbc-07e0-4dd1-90e3-2d65721ca8f7.png"
+        WEBUI_FAVICON_URL = url
+
+        r = requests.get(url, stream=True)
+        if r.status_code == 200:
+            with open(f"{STATIC_DIR}/favicon.png", "wb") as f:
+                r.raw.decode_content = True
+                shutil.copyfileobj(r.raw, f)
+
+        # Fetch the name from the API
         r = requests.get(f"https://api.Cusmato.com/api/v1/custom/{CUSTOM_NAME}")
         data = r.json()
         if r.ok:
-            if "logo" in data:
-                WEBUI_FAVICON_URL = url = (
-                    f"https://api.Cusmato.com{data['logo']}"
-                    if data["logo"][0] == "/"
-                    else data["logo"]
-                )
-
-                r = requests.get(url, stream=True)
-                if r.status_code == 200:
-                    with open(f"{STATIC_DIR}/favicon.png", "wb") as f:
-                        r.raw.decode_content = True
-                        shutil.copyfileobj(r.raw, f)
-
             cusmato = data["name"]
     except Exception as e:
         log.exception(e)
         pass
-
 
 ####################################
 # File Upload DIR
@@ -368,8 +365,7 @@ ENABLE_SIGNUP = (
     if WEBUI_AUTH == False
     else os.environ.get("ENABLE_SIGNUP", "True").lower() == "true"
 )
-DEFAULT_MODELS = os.environ.get("DEFAULT_MODELS", None)
-
+DEFAULT_MODELS = os.environ.get("DEFAULT_MODELS", "llama3:latest")
 
 DEFAULT_PROMPT_SUGGESTIONS = (
     CONFIG_DATA["ui"]["prompt_suggestions"]
@@ -378,35 +374,31 @@ DEFAULT_PROMPT_SUGGESTIONS = (
     and type(CONFIG_DATA["ui"]["prompt_suggestions"]) is list
     else [
         {
-            "title": ["Help me study", "vocabulary for a college entrance exam"],
-            "content": "Help me study vocabulary: write a sentence for me to fill in the blank, and I'll try to pick the correct option.",
+            "title": ["Onboarding", "to Cusmato"],
+            "content": "I'm a business owner and I'm new to Cusmato. Can you guide me through the onboarding process?",
         },
         {
-            "title": ["Give me ideas", "for what to do with my kids' art"],
-            "content": "What are 5 creative things I could do with my kids' art? I don't want to throw them away, but it's also so much clutter.",
+            "title": ["Integrating", "Cusmato with my existing systems"],
+            "content": "I want to integrate Cusmato with my existing systems. Can you provide a step-by-step guide?",
         },
         {
-            "title": ["Tell me a fun fact", "about the Roman Empire"],
-            "content": "Tell me a random fun fact about the Roman Empire",
+            "title": ["Understanding", "how Cusmato's AI works"],
+            "content": "I'm curious about how Cusmato's AI handles customer inquiries. Can you explain it in simple terms?",
         },
         {
-            "title": ["Show me a code snippet", "of a website's sticky header"],
-            "content": "Show me a code snippet of a website's sticky header in CSS and JavaScript.",
+            "title": ["Maximizing", "the use of Cusmato's features"],
+            "content": "What are some best practices to maximize the use of Cusmato's features for my business?",
         },
         {
-            "title": [
-                "Explain options trading",
-                "if I'm familiar with buying and selling stocks",
-            ],
-            "content": "Explain options trading in simple terms if I'm familiar with buying and selling stocks.",
+            "title": ["Troubleshooting", "issues with Cusmato"],
+            "content": "I'm experiencing some issues with Cusmato. Can you help me troubleshoot?",
         },
         {
-            "title": ["Overcome procrastination", "give me tips"],
-            "content": "Could you start by asking me about instances when I procrastinate the most and then give me some suggestions to overcome it?",
+            "title": ["Exploring", "Cusmato's feedback system"],
+            "content": "I'd like to understand how Cusmato's feedback system works to make the AI smarter with every interaction. Can you explain?",
         },
     ]
 )
-
 
 DEFAULT_USER_ROLE = os.getenv("DEFAULT_USER_ROLE", "pending")
 
@@ -520,7 +512,7 @@ else:
 
 
 # device type embedding models - "cpu" (default), "cuda" (nvidia gpu required) or "mps" (apple silicon) - choosing this right can lead to better performance
-USE_CUDA = os.environ.get("USE_CUDA_DOCKER", "false")
+USE_CUDA = os.environ.get("USE_CUDA_DOCKER", "true")
 
 if USE_CUDA.lower() == "true":
     DEVICE_TYPE = "cuda"

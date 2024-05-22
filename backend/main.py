@@ -232,14 +232,14 @@ app.mount("/rag/api/v1", rag_app)
 async def get_app_config():
     # Checking and Handling the Absence of 'ui' in CONFIG_DATA
 
-    default_locale = "en-US"
+    default_locale = "nl-NL"
     if "ui" in CONFIG_DATA:
-        default_locale = CONFIG_DATA["ui"].get("default_locale", "en-US")
+        default_locale = CONFIG_DATA["ui"].get("default_locale", "nl-NL")
 
     # The Rest of the Function Now Uses the Variables Defined Above
     return {
         "status": True,
-        "name": cusmato,
+        "name": "Cusmato",
         "version": VERSION,
         "auth": WEBUI_AUTH,
         "default_locale": default_locale,
@@ -349,7 +349,7 @@ async def get_manifest_json():
         "background_color": "#343541",
         "theme_color": "#343541",
         "orientation": "portrait-primary",
-        "icons": [{"src": "/static/logo.webp", "type": "image/png", "sizes": "500x500"}],
+        "icons": [{"src": "/static/logo.png", "type": "image/png", "sizes": "500x500"}],
     }
 
 
